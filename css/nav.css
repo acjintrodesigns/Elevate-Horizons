@@ -1,0 +1,233 @@
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.nav {
+  font-size: 16px;
+  width: 100%;
+  height: 4.4rem;
+  padding: 5px 5vw 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  transition: height 0.2s ease-in-out;
+}
+/* ! Navigation */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: background-color 0.5s ease;
+  z-index: 1000;
+}
+
+/* text before scroll */
+.nav a {
+  text-decoration: none;
+  color: rgb(209, 209, 209);
+}
+
+.nav .logo {
+  width: 120px;
+  padding-top: auto;
+  margin: 5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: auto;
+  margin-right: 3rem;
+}
+
+.nav-link {
+  margin: 0 2rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: green;
+  background: linear-gradient(
+    0deg,
+    rgba(139, 139, 139, 1) 0%,
+    rgba(232, 232, 232, 1) 100%
+  );
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/*navbar styles after scroll*/
+.scrolling-active {
+  /* gradient style */
+  background: rgb(228, 228, 228);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(228, 228, 228, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(228, 228, 228, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(228, 228, 228, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4e4e4", endColorstr="#ffffff", GradientType=1);
+  /* gradient style end */
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.445);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.scrolling-active .nav {
+  height: 4.6rem;
+  transition: height 0.2s ease-in-out;
+}
+
+.scrolling-active .nav a {
+  color: #222222;
+}
+
+/*Apply styles after scroll end*/
+
+.burger {
+  display: none;
+}
+.scrolling-active .burger div {
+  width: 25px;
+  height: 3px;
+  background: rgb(0, 2, 29);
+  margin: 5px;
+  transition: 0.3s ease-in-out;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: rgb(197, 197, 197);
+  margin: 5px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.336);
+}
+/* ! Navigation End*/
+
+@media only screen and (max-width: 760px) {
+  .nav .logo {
+    width: 100px;
+    padding-top: auto;
+  }
+  .main-logo {
+    width: 75%;
+    padding-top: 15%;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 10px 5vw 10px;
+  }
+  /* after scroll navlink background */
+  .nav-links {
+    position: absolute;
+    justify-content: space-evenly;
+    right: 0;
+    top: 0vh;
+    min-height: 92vh;
+    /* gradient background */
+    background: rgb(228, 228, 228);
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(228, 228, 228, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(228, 228, 228, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      0deg,
+      rgba(228, 228, 228, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4e4e4", endColorstr="#ffffff", GradientType=1);
+    /* gradient background */
+    /* background: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+    transform: translateX(100%);
+    transition: All 0.5s ease-in;
+  }
+  .nav-links a {
+    opacity: 0;
+    color: #000;
+  }
+  .burger {
+    display: block;
+    color: #000000;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .line1,
+  .line2,
+  .line3 {
+    background-color: #000000;
+  }
+
+  nav {
+    justify-content: space-between;
+    padding: 0 5vw;
+  }
+}
+.nav-active {
+  transform: translateX(0);
+}
+@media only screen and (max-width: 460px) {
+  .nav-links {
+    width: 100%;
+    transition: All 0.5s ease;
+  }
+}
+.nav-active {
+  transform: translateX(0);
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+/* ? navigation End*/

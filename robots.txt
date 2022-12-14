@@ -1,0 +1,6 @@
+
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /php/
+Sitemap: https://elevatehorizons.com/sitemap.xml
